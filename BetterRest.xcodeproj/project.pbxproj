@@ -11,6 +11,7 @@
 		9A1122052970D13D009EB6EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1122042970D13D009EB6EE /* ContentView.swift */; };
 		9A1122072970D13E009EB6EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1122062970D13E009EB6EE /* Assets.xcassets */; };
 		9A11220B2970D13E009EB6EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A11220A2970D13E009EB6EE /* Preview Assets.xcassets */; };
+		9A112212297254AB009EB6EE /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A112211297254AB009EB6EE /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		9A1122062970D13E009EB6EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A1122082970D13E009EB6EE /* BetterRest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BetterRest.entitlements; sourceTree = "<group>"; };
 		9A11220A2970D13E009EB6EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9A112211297254AB009EB6EE /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SleepCalculator.mlmodel; path = ../../../SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				9A1122042970D13D009EB6EE /* ContentView.swift */,
 				9A1122062970D13E009EB6EE /* Assets.xcassets */,
 				9A1122082970D13E009EB6EE /* BetterRest.entitlements */,
+				9A112211297254AB009EB6EE /* SleepCalculator.mlmodel */,
 				9A1122092970D13E009EB6EE /* Preview Content */,
 			);
 			path = BetterRest;
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A112212297254AB009EB6EE /* SleepCalculator.mlmodel in Sources */,
 				9A1122052970D13D009EB6EE /* ContentView.swift in Sources */,
 				9A1122032970D13D009EB6EE /* BetterRestApp.swift in Sources */,
 			);
