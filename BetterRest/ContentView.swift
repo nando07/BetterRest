@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var wakeUp = defaultWakeTime
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
+    @State private var alertTitle = "Your ideal bedtime is..."
+    @State private var alertMessage = "10:38 PM"
     @State private var showingAlert = false
 
    static var defaultWakeTime: Date {
@@ -34,14 +34,20 @@ struct ContentView: View {
                 
                 DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
                     .labelsHidden()
-                
+                    .onChange(of: wakeUp) { _ in
+                        print(wakeUp)
+                        calculateBedtime()
+                    }
             }
             
                 Section {
                     Text("Desired amount of sleep")
                         .font(.headline)
                     
-                    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
+                    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25).onChange(of: sleepAmount) { _ in
+                        print(sleepAmount)
+                        calculateBedtime()
+                    }
                     
                 }
                 
@@ -53,23 +59,31 @@ struct ContentView: View {
                         ForEach(1...20, id: \.self) {
                             Text("\($0)")
                         }
+                    }.onChange(of: coffeeAmount) { _ in
+                        print(coffeeAmount)
+                        calculateBedtime()
                     }
-                    
-//                    (coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 1...20)
+                
+                }
+                
+                Section {
+ 
+                    Text(alertTitle).font(.title)
+                    Text(alertMessage).font(.largeTitle).fontWeight(.heavy).foregroundColor(.cyan)
                 }
                 
             }
             .navigationTitle("BetterRest")
-            .toolbar {
-                Button("Calculate", action: calculateBedtime)
-            }
-            .alert(alertTitle, isPresented: $showingAlert) {
-                Button("OK") {}
-                    
-                } message: {
-                    Text(alertMessage)
-                        
-                }
+//            .toolbar {
+//                Button("Calculate", action: calculateBedtime)
+//            }
+//            .alert(alertTitle, isPresented: $showingAlert) {
+//                Button("OK") {}
+//
+//                } message: {
+//                    Text(alertMessage)
+//
+//                }
                 
             }
             
@@ -87,7 +101,7 @@ struct ContentView: View {
             
             let sleepTime = wakeUp - prediction.actualSleep
             
-            alertTitle = "Your ideal bedtime is..."
+//            alertTitle = "Your ideal bedtime is..."
             alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
             
         } catch {
